@@ -1,7 +1,7 @@
 import { type ActionFunctionArgs, json } from '@remix-run/node';
 
-const SENTRY_HOST = 'o4507168685883392.ingest.de.sentry.io';
-const SENTRY_PROJECT_ID = '4507168687980624';
+const SENTRY_HOST = process.env.VITE_SENTRY_HOST;
+const SENTRY_PROJECT_ID = process.env.VITE_SENTRY_PROJECT_ID;
 
 export async function action({ request }: ActionFunctionArgs) {
   try {

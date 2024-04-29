@@ -1,36 +1,13 @@
-# Welcome to Remix + Vite!
+# Sentry Tunnel + Replay issue
 
-📖 See the [Remix docs](https://remix.run/docs) and the [Remix Vite docs](https://remix.run/docs/en/main/guides/vite) for details on supported features.
+With the `/tunnel` endpoint set up, Sentry doesn't appear to be able to save replays. Using compression on the replay payload
+does not appear to make a difference.
 
-## Development
+Check it out:
 
-Run the Vite dev server:
-
-```shellscript
-npm run dev
-```
-
-## Deployment
-
-First, build your app for production:
-
-```sh
-npm run build
-```
-
-Then run the app in production mode:
-
-```sh
-npm start
-```
-
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-- `build/server`
-- `build/client`
+1. Create `.env` file `cp .env.example .env`
+2. Edit the newly created `.env` with values for a Sentry project under your control.
+3. `npm run dev`
+4. Navigate browser to [`http://localhost:5173/sentry-example-page`](http://localhost:5173/sentry-example-page)
+5. Click the "Throw error!" button.
+6. Open your Sentry dashboard and observe: error logged, no replay.
